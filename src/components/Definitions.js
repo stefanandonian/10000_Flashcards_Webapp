@@ -27,4 +27,4 @@ class Definitions extends Component {
   }
 }
 
-export default App;
+export default Definitions;

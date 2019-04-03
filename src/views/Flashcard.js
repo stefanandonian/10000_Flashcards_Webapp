@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
-import '../styles/Flashcard.css';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+        data: ""
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8080/RESTful_API/spanish/word/agua')
+    .then(response => { return response.json() 
+    })
+    .then(data => {
+        alert(JSON.stringify(data))
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <body className="App-header">
-          <Searchbar />
-        </body>
+      <div>
+        
       </div>
     );
   }

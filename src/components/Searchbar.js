@@ -7,26 +7,19 @@ class Searchbar extends Component {
     constructor() {
         super();
         this.state = {
-            data: "",
             searchbar_value: ""
         }
         this.handleInput = this.handleInput.bind(this);
     }
 
-    componentDidMount() {
-        fetch('http://localhost:8080/RESTful_API/spanish/word/agua')
-        .then(response => response.json())
-        .then(data =>  this.setState({ data }))
-        
-        alert(JSON.stringify(fetch('http://localhost:8080/RESTful_API/spanish/word/agua')
-        .then(response => response.json())))
-    }
-
     handleInput(event) {
         this.setState({searchbar_value: event.target.value})
         if(event.key === 'Enter') {
-            //alert("Hello World")
-            alert(this.state.searchbar_value)
+            fetch('http://localhost:8080/RESTful_API/spanish/word/' + this.state.searchbar_value)
+            .then(response => { return response.json() })
+            .then(data => {
+                alert(JSON.stringify(data))
+            })
         } 
     }
 
