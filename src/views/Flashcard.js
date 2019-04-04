@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import '../styles/Flashcard.css'
 
-class App extends Component {
+class Flashcard extends Component {
 
   constructor() {
     super();
@@ -14,17 +15,17 @@ class App extends Component {
     .then(response => { return response.json() 
     })
     .then(data => {
-        alert(JSON.stringify(data))
+      alert(JSON.stringify(data))
     })
   }
 
   render() {
     return (
-      <div>
-        
+      <div className="flashcard-base">
+          <img className="flashcard-image" src={require("../resources/img/test-image.jpg")} alt="Beautiful Nature Dummy" /> 
       </div>
     );
   }
 }
 
-export default App;
+export default Flashcard;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
-import App from './components/App';
+import Home from './views/Home';
 import Flashcard from './views/Flashcard'
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 const routing = (
     <BrowserRouter>
         <div> 
-            <Route path="/" component={ App } />
+            <Route exact path="/" component={ Home } />
             <Route path="/word" component={ Flashcard } />
         </div>
     </BrowserRouter>
