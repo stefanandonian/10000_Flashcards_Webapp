@@ -10,7 +10,7 @@ const routing = (
     <BrowserRouter>
         <div> 
             <Route exact path="/" component={ Home } />
-            <Route path="/word" component={ Flashcard } />
+            <Route path="/word/:palabra" component={ Flashcard } />
         </div>
     </BrowserRouter>
 )
