@@ -9,21 +9,22 @@ class Searchbar extends Component {
         this.state = {
             searchbar_value: ""
         }
-        this.handleInput = this.handleInput.bind(this);
+        //this.handleInput = this.handleInput.bind(this);
     }
 
-    handleInput(event) {
-        this.setState({searchbar_value: event.target.value})
-        if(event.key === 'Enter') {
-            fetch('http://localhost:8080/RESTful_API/spanish/word/' + this.state.searchbar_value)
-            .then(response => { return response.json() })
-            .then(data => {
-                alert(JSON.stringify(data))
-            })
-        } 
-    }
+    // handleInput(event) {
+    //     this.setState({searchbar_value: event.target.value})
+    //     if(event.key === 'Enter') {
+    //         fetch('http://localhost:8080/RESTful_API/spanish/word/' + this.state.searchbar_value)
+    //         .then(response => { return response.json() })
+    //         .then(data => {
+    //             alert(JSON.stringify(data))
+    //         })
+    //     } 
+    // }
 
     render() {
+
         return (
             <div>
                 <span className="p-float-label">

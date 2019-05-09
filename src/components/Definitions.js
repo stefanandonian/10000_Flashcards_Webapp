@@ -5,26 +5,30 @@ class Definitions extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            data: null,
+        this.state = { jsonDefinitions: {}
         };
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/RESTful_API/spanish/word/agua')
-        .then(response => response.json())
-        .then(data =>  this.setState({ data }))
-        
-        alert(this.state.data)
+      const jsonServerResponse = fetch('http://localhost:8080/RESTful_API/definition/word/' + this.props.word, { mode: 'cors' } )
+                                 .then(response => { 
+                                   console.log(response.body)
+                                  return response.json() 
+                                  });
+      
+      alert(JSON.stringify(jsonServerResponse));
+      this.setState({ jsonDefinitions: jsonServerResponse })
     }
 
     render() {
+
     return (
       <div>       
-          
+          <h1> { this.props.word } </h1>
       </div>
     );
   }
+  
 }
 
 export default Definitions;

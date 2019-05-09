@@ -1,31 +1,22 @@
 import React, { Component } from 'react';
-import '../styles/Flashcard.css'
+import '../styles/Flashcard.css';
+import Definitions from '../components/Definitions.js';
 
 class Flashcard extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
         word_attributes: ""
     }
   }
 
-  // componentDidMount() {
-  //   fetch('http://localhost:8080/RESTful_API/spanish/word/agua')
-  //   .then(response => { return response.json() 
-  //   })
-  //   .then(data => {
-  //     this.setState(
-  //       { word_attributes: data }
-  //     )
-  //   })
-  // }
-
   render() {
     return (
       <div className="flashcard-base">
           <img className="flashcard-image" src={require("../resources/img/test-image.jpg")} alt="Beautiful Nature Dummy" /> 
-          <h1> { this.props.match.palabra } </h1>
+          <Definitions word={ this.props.match.params.palabra } />
       </div>
     );
   }
