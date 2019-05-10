@@ -17,6 +17,10 @@ body {
   padding: 0;
 }
 
+#home_title {
+  font-style: italic
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

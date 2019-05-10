@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Home.css';
-import Searchbar2 from '../components/Searchbar2/Searchbar2.js';
+import Searchbar from '../components/searchbar/Searchbar.js';
 
 class Home extends Component {
   
@@ -8,8 +8,8 @@ class Home extends Component {
     return (
       <div className="App">
           <body className="App-header">
-              <h1> Learn a Word! </h1>
-              <Searchbar2 />
+              <h1 id="home_title"> Learn a Word! </h1>
+              <Searchbar />
           </body>
       </div>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Searchbar from './components/Searchbar2/Searchbar2';
+import Searchbar from './components/Searchbar/Searchbar';
 
 class App extends Component {
   render() {
