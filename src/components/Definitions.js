@@ -9,15 +9,13 @@ class Definitions extends Component {
         };
     }
 
-    componentDidMount() {
-      const jsonServerResponse = fetch('http://localhost:8080/RESTful_API/definition/word/' + this.props.word, { mode: 'cors' } )
-                                 .then(response => { 
-                                   console.log(response.body)
-                                  return response.json() 
-                                  });
-      
-      alert(JSON.stringify(jsonServerResponse));
-      this.setState({ jsonDefinitions: jsonServerResponse })
+    async componentDidMount() {
+      const { body } = await fetch('http://localhost:8080/RESTful_API/spanish/definition/' + this.props.word, 
+                                      { mode: "cors",
+                                        method: "GET",
+                                        headers: { "Content-Type": "text/plain" } } )
+      alert(JSON.stringify(body))
+      //this.setState({ jsonDefinitions: jsonServerResponse })
     }
 
     render() {
