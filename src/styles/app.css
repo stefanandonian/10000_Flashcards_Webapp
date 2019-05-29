@@ -1,0 +1,126 @@
+ /* App.css
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+  */
+
+  /* Home.css  */
+  .App {
+    text-align: center;
+  }
+  
+  .Search-bar {
+    color: black;
+    width: 500px;
+    font-size: 30px;
+  }
+  
+  .Search-header {
+    color: wheat;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #home_title {
+    font-style: italic
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  /* Searchbar.css */
+  * {
+    box-sizing: border-box;
+  }
+  
+  .search {
+    height: 6vh;
+    padding: 10px;
+    border: 1px solid grey;
+    font-size: 17px;  
+  }
+
+  input.search {
+    width: 50vw;
+    float: left;
+    background-color: #f1f1f1;
+  }
+  
+  button.search {
+    width: 10vw;
+    float: center;
+    color: white;
+    border-left: none;
+    cursor: pointer;
+  }
+
+  .particular {
+    background-color: #2196F3;
+  }
+
+  .particular:hover {
+    background-color: #07599c;
+  }
+  
+  .random {
+    background-color: #11F329;      
+  }
+
+  .random:hover {
+    background-color: rgb(7, 141, 20);
+  }
+
+  /* Flashcard.css */ 
+  .picture {
+    display: block;
+    width: 50%;
+    height: 25%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid black;
+}
+
+.table-title {
+  margin: 5%;
+}
+
+.flashcard-base {
+    background-color: #282c34;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.component {
+    display: flex;
+    justify-content: center;
+    padding-top: 1%;
+    color: wheat;
+}
+
+.list {
+  align-self: left;
+}

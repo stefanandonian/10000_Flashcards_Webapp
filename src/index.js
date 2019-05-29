@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
-import Home from './views/Home';
-import Flashcard from './views/flashcard/Flashcard'
 import * as serviceWorker from './serviceWorker';
+
 import { BrowserRouter, Route } from 'react-router-dom';
+
+import Home from './views/Home';
+import Flashcard from './views/Flashcard'
 
 const routing = (
     <BrowserRouter>
