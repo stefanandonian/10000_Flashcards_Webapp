@@ -5,18 +5,31 @@ class Connections extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { connections: {}
+        this.state = { jsonConnections: []
         };
     }
 
-    render() {
+    async componentDidMount() {
+      const body = await fetch('http://localhost:8080/RESTful_API/spanish/connection/' + this.props.word, 
+                                      { mode: "cors",
+                                        method: "GET",
+                                        cache: "no-cache",
+                                        headers: { "Content-Type": "application/json" } } )
+                          .then(response => response.json());
+      this.setState({ jsonConnections: body })
+    }
 
-    return (
-      <div>       
-          //TODO
-      </div>
-    );
-  }
+    render() {
+      return (
+        <ul aria-label="Connections">
+            {
+            this.state.jsonConnections.map(function(objCon) {
+            return ( 
+              <li> {objCon.strTo} </li>
+            )})}
+        </ul>
+      );
+    }
   
 }
 

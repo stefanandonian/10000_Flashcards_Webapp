@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 import '../styles/app.css';
 
 import Definitions from '../components/Definitions.js';
-import Conjugations from '../components/Conjugations.js';
-import Connections from '../components/Relations';
+import Connections from '../components/Connections';
 import Searchbar from '../components/Searchbar.js';
-import Relations from '../components/Relations';
 
-class Flashcard extends Component {
+class Flashcard extends Component { 
 
   constructor(props) {
     super(props);
@@ -24,15 +22,9 @@ class Flashcard extends Component {
           <div className="component">
             <Searchbar />
           </div>
-          <img className="picture" src={require("../resources/img/test-image.jpg")} alt="Beautiful Nature Dummy" /> 
+          <img className="picture"  src={require("../resources/img/test-image.jpg")} alt="Beautiful Nature Dummy"/> 
           <div className="component">
-            <Definitions word={ this.props.match.params.palabra } />
-          </div>
-          <div className="component">
-            <Conjugations />
-          </div>
-          <div className="component">
-            <Relations />
+            <span> <Definitions word={ this.props.match.params.palabra } /> <Connections word={ this.props.match.params.palabra }/> </span>
           </div>
       </div>
     );

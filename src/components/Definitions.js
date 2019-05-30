@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import '../styles/app.css';
 
 class Definitions extends Component {
 
     constructor(props) {
         super(props);
 
-        this.state = { jsonDefinitions: {}
+        this.state = { jsonDefinitions: []
         };
     }
 
@@ -23,25 +24,13 @@ class Definitions extends Component {
 
     render() {
       return (
-        <div>       
-          <h1> { this.props.word } </h1>
-            <li className="list">   
-              <script>
-                for (definition in this.state.jsonDefinitions) {
-                  alert(definition)
-                }
-              </script>
-
-              { /*
-              <h3> Relations </h3> 
-              <h4> Verb </h4>
-              <p> 1. To swim </p>
-              <p> 2. To swim fast </p>
-              <h4> Noun </h4>
-              <p> 1. A swim </p>
-              */ }
-            </li>
-        </div>
+        <ul aria-label="Definitions">
+            {
+            this.state.jsonDefinitions.map(function(objDef) {
+            return ( 
+              <li className="def"> {objDef.strDefinition}  <span className="pos"> {objDef.strPartOfSpeech} </span> </li>
+            )})}
+        </ul>
       );
     }
   
