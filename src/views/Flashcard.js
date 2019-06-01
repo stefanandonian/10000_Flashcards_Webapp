@@ -4,8 +4,9 @@ import '../styles/app.css';
 
 import Definitions from '../components/Definitions.js';
 import Connections from '../components/Connections';
+import Conjugations from '../components/Conjugations';
 import Searchbar from '../components/Searchbar.js';
-
+import Picture from '../components/Picture.js';
 class Flashcard extends Component { 
 
   constructor(props) {
@@ -22,9 +23,13 @@ class Flashcard extends Component {
           <div className="component">
             <Searchbar />
           </div>
-          <img className="picture"  src={require("../resources/img/test-image.jpg")} alt="Beautiful Nature Dummy"/> 
+          <Picture word={this.props.match.params.palabra}/>
           <div className="component">
-            <span> <Definitions word={ this.props.match.params.palabra } /> <Connections word={ this.props.match.params.palabra }/> </span>
+            <span> 
+              <Definitions  word={ this.props.match.params.palabra}/> 
+              <Connections  word={ this.props.match.params.palabra}/>
+              <Conjugations word={ this.props.match.params.palabra}/>
+            </span>
           </div>
       </div>
     );

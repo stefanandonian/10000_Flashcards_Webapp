@@ -1,0 +1,22 @@
+div.image-container {
+    position: relative;
+    display: inline-block; /* Make the width of box same as image */
+}
+
+div.image-container .transparent-bar {
+    position: absolute;
+    z-index: 999;
+    margin: 0 auto 0 auto;
+    left: 0;
+    right: 0;        
+    text-align: center;
+    top: 41%; /* Adjust this value to move the positioned div up and down */
+    background: rgba(0, 0, 0, 0.6);
+    font-family: Arial,sans-serif;
+    color: #fff;
+    width: 50%; /* Set the width of the positioned div */
+}
+
+img.picture {
+    margin: 3% auto;
+}

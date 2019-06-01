@@ -2,92 +2,98 @@ import React, { Component } from 'react';
 
 class Conjugations extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = { conjugations: {}
-        };
+    this.state = {
+      infinitive: "",
+      gerund: "",
+      pastParticiple: "",
+      indicative: [],
+      subjunctive: [],
+      imperative: []
+    };
+    
+    this.buildTable = this.buildTable.bind(this);
+    this.buildTableRows = this.buildTableRows.bind(this);
+    this.addConjugationArraysToState = this.addConjugationArraysToState.bind(this);
+  }
+
+  async componentDidMount() {
+    if(this.props.word[this.props.word.length -1] === 'r') {
+    const body = await fetch('http://localhost:8080/RESTful_API/spanish/verb/' + this.props.word, 
+                                    { mode: "cors",
+                                      method: "GET",
+                                      cache: "no-cache",
+                                      headers: { "Content-Type": "application/json" } } )
+                        .then(response => response.json());
+      this.addConjugationArraysToState(body[0]);
     }
+  } 
+  
+  addConjugationArraysToState = (cons) => {
+    this.setState({
+      infinitive: cons.strInfinitive,
+      gerund: cons.strGerund,
+      pastParticiple: cons.strPastParticipleMasculineSingular,
+      indicative: [
+        ["Present",            cons.strIndicativePresentYo,     cons.strIndicativePresentTu,     cons.strIndicativePresentUsted,     cons.strIndicativePresentNosotros,     cons.strIndicativePresentVosotros,     cons.strIndicativePresentEllos],
+        ["Imperfect Past",     cons.strIndicativeImperfectYo,   cons.strIndicativeImperfectTu,   cons.strIndicativeImperfectUsted,   cons.strIndicativeImperfectNosotros,   cons.strIndicativeImperfectVosotros,   cons.strIndicativeImperfectEllos],
+        ["Preterite Past",     cons.strIndicativePreteriteYo,   cons.strIndicativePreteriteTu,   cons.strIndicativePreteriteUsted,   cons.strIndicativePreteriteNosotros,   cons.strIndicativePreteriteVosotros,   cons.strIndicativePreteriteEllos],
+        ["Perfect Future",     cons.strIndicativeFutureYo,      cons.strIndicativeFutureTu,      cons.strIndicativeFutureUsted,      cons.strIndicativeFutureNosotros,      cons.fstrIndicativeFutureVosotros,     cons.strIndicativeFutureEllos],
+        ["Conditional Future", cons.strIndicativeConditionalYo, cons.strIndicativeConditionalTu, cons.strIndicativeConditionalUsted, cons.strIndicativeConditionalNosotros, cons.strIndicativeConditionalVosotros, cons.strIndicativeConditionalEllos]
+      ],
+      subjunctive: [
+        ["Present",             cons.strSubjunctivePresentYo, cons.strSubjunctivePresentTu, cons.strSubjunctivePresentUsted, cons.strSubjunctivePresentNosotros, cons.strSubjunctivePresentVosotros, cons.strSubjunctivePresentEllos],
+        ["Imperfect Past (Ra)", cons.strSubjunctiveImperfectRaYo, cons.strSubjunctiveImperfectRaTu, cons.strSubjunctiveImperfectRaUsted, cons.strSubjunctiveImperfectRaNosotros, cons.strSubjunctiveImperfectRaVosotros, cons.strSubjunctiveImperfectRaEllos],
+        ["Imperfect Past (Se)", cons.strSubjunctiveImperfectSeYo, cons.strSubjunctiveImperfectSeTu, cons.strSubjunctiveImperfectSeUsted, cons.strSubjunctiveImperfectSeNosotros, cons.strSubjunctiveImperfectSeVosotros, cons.strSubjunctiveImperfectSeEllos],
+        ["Conditional Future",  cons.strSubjunctiveFutureYo, cons.strSubjunctiveFutureTu, cons.strSubjunctiveFutureUsted, cons.strSubjunctiveFutureNosotros, cons.strSubjunctiveFutureVosotros, cons.strSubjunctiveFutureEllos]
+      ],
+      imperative: [
+        ["Affirmative", "-", cons.strImperativeAffirmativeTu,      cons.strImperativeAffirmativeUsted,      cons.strImperativeAffirmativeNosotros,      cons.strImperativeAffirmativeVosotros,      cons.strImperativeAffirmativeEllos],
+        ["Negative",    "-", "No " + cons.strImperativeNegativeTu, "No " + cons.strImperativeNegativeUsted, "No " + cons.strImperativeNegativeNosotros, "No " + cons.strImperativeNegativeVosotros, "No " + cons.strImperativeNegativeEllos]
+      ] 
+    });
+  }
 
-    render() {
+  buildTableRows = (words) => {
+    let table_body = []
+    for (var i = 0; i < words.length; i++) {
+      let child_row = []
+      for (var p = 0; p < words[i].length; p++) {
+        child_row.push(<td>{words[i][p]}</td>);
+      }
+      table_body.push(<tr>{child_row}</tr>)
+    }
+    return table_body;
+  }
 
+  buildTable = (title, data) => {
     return (
-      <div>       
-          <table>
-            <tbody>
-              <tr> 
-                 <td> Infinitive </td> 
-                 <td> nadar </td>
-              </tr>
-              <tr>
-                 <td> Gerud </td>
-                 <td> Past Participle </td>
-              </tr>
-              <tr>
-                 <td> nadando </td>
-                 <td> nadado </td>
-              </tr>
-              <tr>
-                <td></td>
-                <td> Yo </td>
-                <td> Tu </td>
-                <td> El/Ella/Usted </td>
-                <td> Nosotros </td>
-                <td> Vosotros </td>
-                <td> Ellos/ Ustedes </td>
-              </tr>
-              <tr className="table-title"><td> Infinitive </td></tr>
-              <tr>
-                <td> Present </td>
-                <td> nado </td>
-                <td> nadas </td>
-                <td> nada </td>
-                <td> nadamos </td>
-                <td>  </td>
-                <td> nadan </td>
-              </tr>
-              <tr>
-                <td> Past </td>
-                <td> nadé </td>
-                <td> nadaste </td>
-                <td> nadó </td>
-                <td> nadaramos </td>
-                <td>  </td>
-                <td> nadaron </td>
-              </tr>
-              <tr>
-                <td> Continuous </td>
-                <td> nadaba </td>
-                <td> nadabas </td>
-                <td> nadaba </td>
-                <td> nadabamos </td>
-                <td>  </td>
-                <td> nadaban </td>
-              </tr>
-              <tr>
-                <td> Future </td>
-                <td> nadaré </td>
-                <td> nadarás </td>
-                <td> nadará </td>
-                <td> nadarámos </td>
-                <td>  </td>
-                <td> nadarán </td>
-              </tr>
-              <tr>
-                <td> Possible Future </td>
-                <td> nadaría </td>
-                <td> nadarías </td>
-                <td> nadaría </td>
-                <td> nadaríamos </td>
-                <td>  </td>
-                <td> nadarían </td>
-              </tr>
-              </tbody>
-          </table>
-      </div>
+      <table>
+        <caption>{title}</caption>
+        <tr>
+          <th> </th><th>Yo</th><th>Tu</th><th>Ella</th><th>Nosotros</th><th>Vosotros</th><th>Ellos</th>
+        </tr>
+        {this.buildTableRows(data)}        
+      </table>
     );
   }
-  
+
+  render() {
+    if(this.state.infinitive === '') {
+      return <div></div>
+    } else {
+      return (  
+        <ul aria-label="Verb Conjugations">
+          <li> Infinitive: {this.state.infinitive} Gerund: {this.state.gerund} Past Participle: {this.state.pastParticiple} </li>
+          <li>{this.buildTable("Indicative", this.state.indicative)}</li>
+          <li>{this.buildTable("Subjunctive", this.state.subjunctive)}</li>
+          <li>{this.buildTable("Imperative", this.state.imperative)}</li>
+        </ul>
+      );
+    }
+  }
 }
 
 export default Conjugations;

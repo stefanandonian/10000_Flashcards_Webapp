@@ -13,8 +13,15 @@
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
-  */
-
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+*/
   /* Home.css  */
   .App {
     text-align: center;
@@ -51,10 +58,6 @@
   }
   
   /* Searchbar.css */
-  * {
-    box-sizing: border-box;
-  }
-  
   .search {
     height: 6vh;
     padding: 10px;
@@ -158,4 +161,32 @@ ul>li:nth-child(3n+1) {
 
 ul>li:nth-child(3n+2) {
   background-color: darkgrey;
+}
+
+ul>li:hover {
+  font-weight: bold;
+  background-color: lime;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: center;
+}
+
+td:hover {
+  font-weight: bold;
+  background-color: lime;
+}
+
+caption {
+  padding: 0%;
+  margin: 0%;
+  background-color: black;
+  font-size: 1.5em;
+  text-align: left;
+  color: goldenrod;
+  text-shadow: 1px 1px wheat;
 }
