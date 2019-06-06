@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../styles/app.css';
+import '../styles/searchbar.css';
 import { withRouter } from 'react-router-dom';
 
 class Searchbar extends Component {
@@ -36,7 +36,9 @@ class Searchbar extends Component {
     }
 
     handleSubmit_Go = () => {
-        this.go()
+        if(this.state.strSearch != '') {
+            this.go()
+        }
     }
 
     handleSubmit_Random = () => {
@@ -45,15 +47,21 @@ class Searchbar extends Component {
 
     render() {
         return (
-            <div>
+            <div className="search-container">
                 <input 
                  className="search"
                  placeholder="Search..."
                  ref={ input => this.search = input }
                  onKeyPress={ (event) => this.handleKeyPress(event) }
                  onChange={ this.handleChange }/>
-                <button className="search particular" onClick={ () => this.handleSubmit_Go() }>Go</button>
-                <button className="search random" onClick={ () => this.handleSubmit_Random() }>Feelin' Lucky</button>
+                <button className="search particular" 
+                        onClick={ () => this.handleSubmit_Go() }>
+                    Go
+                </button>
+                <button className="search random" 
+                        onClick={ () => this.handleSubmit_Random() }>
+                    Feelin' Lucky
+                </button>
             </div>
         );
     }

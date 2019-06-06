@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './picture.css'
 
 class Picture extends React.Component {
@@ -6,21 +6,20 @@ class Picture extends React.Component {
     constructor(props) {
         super(props);
     }
- 
+
     render() {
-        return (
-            <div class="image-container">
-              <img className="picture"  
-                   src={require("../resources/img/test-image.jpg")} 
-                   alt="Beautiful Nature Dummy"/> 
-              <div class="transparent-bar">
-                <h1>
-                  <span>{this.props.word}</span>
-                </h1>
-              </div>
+      return (
+        <div class="flash-card-base">
+          <div class="picture">
+               <div class="title-container">
+                  <h1 class="title">
+                    {this.props.word}
+                  </h1>
             </div>
-        );
-    }
+          </div>
+        </div>
+      );
+  }
 }
 
 export default Picture;

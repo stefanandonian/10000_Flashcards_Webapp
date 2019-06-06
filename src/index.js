@@ -7,15 +7,13 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './views/Home';
 import Flashcard from './views/Flashcard'
 
-import Picture from './components/Picture.js'
+import Test from './views/Test.js'
 
 const routing = (
     <BrowserRouter>
-        <div> 
-            <Route exact path="/" component={ Home } />
-            <Route path="/word/:palabra" component={ Flashcard } />
-            <Route path="/test" component={Picture} />
-        </div>
+      <Route exact path="/" component={ Home } />
+      <Route path="/word/:palabra" component={ Flashcard } />
+      <Route path="/test/:palabra" component={Test} />
     </BrowserRouter>
 )
 
