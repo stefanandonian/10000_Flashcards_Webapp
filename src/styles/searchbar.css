@@ -1,19 +1,20 @@
 div.search-container {
     width: 90%;
-    height: 100%;
+    height: 20%;
     margin: auto;
     padding-top: 2%;
     overflow: visible;
 }
 
 .search {
-    height: 100%;
+    height: inherit;
     padding: 10px;
     border: 1px solid grey;
     font-size: 17px;  
   }
 
   input {
+    height: inherit;
     width: 65%;
     float: left;
     background-color: #f1f1f1;
@@ -21,7 +22,7 @@ div.search-container {
   
   button.search {
     width: 15%;
-    height: 100%;
+    height: inherit;
     float: center;
     color: white;
     border-left: none;

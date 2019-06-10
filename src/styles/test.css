@@ -1,44 +1,50 @@
-body {
-    background: url(../resources/img/mountain-lake.jpg) no-repeat;
-    background-size: cover;
-    background-attachment: fixed; /* Keep the inherited background full-size. */
-    display: grid;
-    align-items: center;
+.searchbar-container {
+    width: inherit;
+    height: 20%;
+
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
-}
 
-div {
-    background: inherit;
-}
-
-.container {
-    width: 40rem;
-    height: 25rem;
-    line-height: 25rem;
-    box-shadow: 0 0 2rem 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    background: inherit;
-    overflow: hidden;
-    border-radius: .5rem;
-    z-index: 1;
-    text-align: center;
-    font-size: 4rem;
-    text-transform: capitalize;
-    color: white;
-}
-
-.container:before {
-    content: "";
-    position: absolute;
-    background: inherit;
-    top: 0;
+    margin: auto;
     left: 0;
     right: 0;
-    bottom: 0;
-    box-shadow: inset 0 2000px 2000px rgba(0, 0, 0, .3);
-    filter:blur(5px);
-    margin: -2rem;
-    z-index: -1;
 }
+
+.search-item {
+    height: 100%;
+    border: 1px solid grey;
+    font-size: 1rem;  
+  }
+
+  input.search-item {
+    order: 1;
+    width: 65%;
+    background-color: #f1f1f1;
+  }
+  
+  button.search-item {
+    width: 15%;
+    border-left: none;
+    cursor: pointer;
+  }
+
+  .particular {
+    color: white;
+    order: 2;
+    background-color: #2196F3;
+  }
+
+  .particular:hover {
+    background-color: #07599c;
+  }
+  
+  .random {
+    color: white;
+    order: 3;
+    background-color: #11F329;      
+  }
+
+  .random:hover {
+    background-color: rgb(7, 141, 20);
+  }

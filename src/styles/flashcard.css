@@ -1,0 +1,22 @@
+.flashcard-container {
+    width: 80%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.search-container {
+    order: 1;
+}
+
+.image-container {
+    order: 2;
+}
+
+.grid-container {
+    order: 3;
+}
