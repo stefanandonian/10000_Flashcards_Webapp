@@ -50,7 +50,7 @@ class Searchbar extends Component {
         return (
             <div className="searchbar-container">
                 <input className="search-item"
-                 placeholder="Search..."
+                 placeholder="Search a Spanish word..."
                  ref={ input => this.search = input }
                  onKeyPress={ (event) => this.handleKeyPress(event) }
                  onChange={ this.handleChange }/>

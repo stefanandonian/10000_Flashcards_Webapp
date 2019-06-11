@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import '../styles/searchbar.css';
+import '../styles/app.css';
+
+import '../styles/test.css';
 import { withRouter } from 'react-router-dom';
 
 class Searchbar extends Component {
-
     constructor() {
         super();
         
@@ -47,18 +48,17 @@ class Searchbar extends Component {
 
     render() {
         return (
-            <div className="search-container">
-                <input 
-                 className="search"
-                 placeholder="Search..."
+            <div className="searchbar-container">
+                <input className="search-item"
+                 placeholder="Search a Spanish word..."
                  ref={ input => this.search = input }
                  onKeyPress={ (event) => this.handleKeyPress(event) }
                  onChange={ this.handleChange }/>
-                <button className="search particular" 
+                <button className="search-item particular" 
                         onClick={ () => this.handleSubmit_Go() }>
                     Go
                 </button>
-                <button className="search random" 
+                <button className="search-item random" 
                         onClick={ () => this.handleSubmit_Random() }>
                     Feelin' Lucky
                 </button>

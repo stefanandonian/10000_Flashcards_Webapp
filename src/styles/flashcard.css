@@ -1,4 +1,12 @@
+body {
+    background-image: linear-gradient(to right, #ff9a9e, #fad0c4);
+}
+
 .flashcard-container {
+    border-radius: 2rem;
+    box-shadow: 5px 5px #29323c;
+    background-image: linear-gradient(to right, #29323c, #485563);
+
     width: 80%;
     height: 100%;
 
@@ -7,6 +15,10 @@
     justify-content: space-between;  
     flex-wrap: wrap;
     align-items: center;
+    
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .search-container {

@@ -1,46 +1,72 @@
-div.search-container {
-    width: 90%;
-    height: 20%;
-    margin: auto;
-    padding-top: 2%;
-    overflow: visible;
+.searchbar-container {
+  border-radius: 1rem;
+  background-image: linear-gradient(to right, #29323c, #2b353d);
+  width: 90%;
+  height: 15%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 2.5vmin auto;
+  left: 0;
+  right: 0;
 }
 
-.search {
-    height: inherit;
-    padding: 10px;
-    border: 1px solid grey;
-    font-size: 17px;  
-  }
+.search-item {
+  padding: 1vmin;
+  box-sizing: border-box;
+  height: 65%;
+  border: 1px solid grey;
+  border-radius: 2px;
+  font-size: 3.5vmin;  
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
 
-  input {
-    height: inherit;
-    width: 65%;
-    float: left;
-    background-color: #f1f1f1;
-  }
-  
-  button.search {
-    width: 15%;
-    height: inherit;
-    float: center;
-    color: white;
-    border-left: none;
-    cursor: pointer;
-  }
+input.search-item {
+  order: 1;
+  width: 63%;
+  background-color: #f1f1f1;
+  border-bottom: solid 3px rgb(124, 147, 155);
+}
 
-  .particular {
-    background-color: #2196F3;
-  }
+button.search-item {
+  width: 15%;
+  line-height: 90%;
+  border-left: none;
+  cursor: pointer;
+  display: inline-block;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  color: #ffffff;
+}
 
-  .particular:hover {
-    background-color: #07599c;
-  }
-  
-  .random {
-    background-color: #11F329;      
-  }
+.particular {
+  order: 2;
+  background-image: -webkit-linear-gradient(#6795fd 0%, #67ceff 100%);
+  background-image: linear-gradient(#6795fd 0%, #67ceff 100%);
+  border-bottom: solid 3px #5e7fca;
+}
 
-  .random:hover {
-    background-color: rgb(7, 141, 20);
-  }
+.particular:active {
+  -ms-transform: translateY(4px);
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  border-bottom: none;
+}
+
+.random {
+  order: 3;
+  background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  border-bottom: solid 3px #c58668;
+}
+
+.random:active {    
+  -ms-transform: translateY(4px);    
+  -webkit-transform: translateY(4px);    
+  transform: translateY(4px);     
+  border-bottom: none;
+}
