@@ -9,7 +9,9 @@ class Searchbar extends Component {
         super();
         
         this.state = {
-            strSearch: ""
+            strSearch: "",
+            answer: {},
+            largeImageURL: ""
         }
 
         this.handleSubmit_Go = this.handleSubmit_Go.bind(this);
@@ -37,7 +39,7 @@ class Searchbar extends Component {
     }
 
     handleSubmit_Go = () => {
-        if(this.state.strSearch != '') {
+        if(this.state.strSearch !== '') {
             this.go()
         }
     }

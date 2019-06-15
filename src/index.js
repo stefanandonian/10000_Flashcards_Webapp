@@ -4,14 +4,14 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Home from './views/Home';
+import Base from './views/Base';
 import Flashcard from './views/Flashcard'
 
 import Test from './views/Test.js'
 
 const routing = (
     <BrowserRouter>
-      <Route exact path="/" component={ Home } />
+      <Route exact path="/" component={ Base } />
       <Route path="/word/:palabra" component={ Flashcard } />
       <Route path="/test/:palabra" component={Test} />
     </BrowserRouter>

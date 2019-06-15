@@ -37,7 +37,7 @@ class Searchbar extends Component {
     }
 
     handleSubmit_Go = () => {
-        if(this.state.strSearch != '') {
+        if(this.state.strSearch !== '') {
             this.go()
         }
     }

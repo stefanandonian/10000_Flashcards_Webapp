@@ -9,6 +9,7 @@ import Picture from '../components/Picture.js';
 class Flashcard extends Component { 
 
   render() {
+
     return (
       <div className="flashcard-container">
           <Searchbar />

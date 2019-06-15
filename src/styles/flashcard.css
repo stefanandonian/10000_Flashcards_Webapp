@@ -12,13 +12,8 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  
+    justify-content: flex-start;  
     flex-wrap: wrap;
-    align-items: center;
-    
-    left: 0;
-    right: 0;
-    margin: auto;
 }
 
 .search-container {
